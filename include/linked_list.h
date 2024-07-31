@@ -26,6 +26,7 @@ typedef struct node {
 
 void insert_head_node(Node **head, int value);
 void insert_tail_node(Node **head, int value);
+void insert_after_node(Node **head, int new_node_value, int after_node_value);
 
 void print_linked_list(const Node *head);
 

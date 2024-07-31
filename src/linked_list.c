@@ -52,6 +52,41 @@ void insert_tail_node(Node **head, int value) {
 }
 
 /**
+ * Inserts a new node in a linked list after the first occurrence of a node
+ * with a given value. If no node with that given value occurs in the list,
+ * the new node is inserted at the tail of the linked list.
+ *
+ * @brief Inserts a new node in a linked list after a given value
+ *
+ * @param head address of a pointer to the head of a linked list
+ * @param new_node_value value to store in a new node in the linked list
+ * @param after_node_value value of a node after which to insert the new node
+ * @return nothing
+ */
+void insert_after_node(Node **head, int new_node_value, int after_node_value) {
+    if (*head == NULL) // list is empty; insert as the head of a new list
+        return insert_head_node(head, new_node_value);
+
+    else {
+        Node *current = *head;
+        // traverse to the end of the list
+        while (current->next != NULL) {
+            if (current->value == after_node_value)
+                break;
+
+            current = current->next;
+        }
+
+        // we've either found the node with the given value, or we've
+        // reached the end of the list. insert new node after the current
+        // node regardless.
+        Node *new_node = create_new_node(new_node_value);
+        new_node->next = current->next;
+        current->next = new_node;
+    }
+}
+
+/**
  * @brief Print out a linked list
  *
  * @param head pointer to the head of a linked list
