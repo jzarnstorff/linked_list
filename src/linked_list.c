@@ -7,6 +7,7 @@
  */
 
 #include "linked_list.h"
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -101,6 +102,20 @@ void print_linked_list(const Node *head) {
         current = current->next;
     }
     printf("NULL\n");
+}
+
+/**
+ * @brief Recursively traverse the list to count the number of nodes
+ *
+ * @param head pointer to the head of a linked list
+ * @return length of the linked list
+ */
+size_t length_linked_list(const Node *head) {
+    if (head == NULL)
+        return 0;
+
+    else
+        return 1 + length_linked_list(head->next);
 }
 
 /**

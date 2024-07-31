@@ -9,6 +9,8 @@
 #ifndef __LINKED_LIST_H__
 #define __LINKED_LIST_H__
 
+#include <stddef.h>
+
 /**
  * Linked lists are made up of nodes that point to one another in a chain,
  * beginning with a head node and ending with a tail node. Each node only
@@ -29,6 +31,7 @@ void insert_tail_node(Node **head, int value);
 void insert_after_node(Node **head, int new_node_value, int after_node_value);
 
 void print_linked_list(const Node *head);
+size_t length_linked_list(const Node *head);
 
 void delete_head_node(Node **head);
 void delete_tail_node(Node **head);
