@@ -138,6 +138,25 @@ bool has_value(const Node *head, int value) {
 }
 
 /**
+ * @brief Recursively traverse the list to count the number of nodes with a
+ * given value
+ *
+ * @param head pointer to the head of a linked list
+ * @param value value of the node to search for
+ * @return number of nodes with given value
+ */
+size_t num_occurrences(const Node *head, int value) {
+    if (head == NULL)
+        return 0;
+
+    else if (head->value == value)
+        return 1 + num_occurrences(head->next, value);
+
+    else
+        return num_occurrences(head->next, value);
+}
+
+/**
  * @brief Delete the node at the head of a linked list
  *
  * @param head address of a pointer to the head of a linked list
