@@ -262,3 +262,18 @@ Node *get_node_by_index(Node *head, size_t index) {
 
     return current;
 }
+
+/**
+ * @brief Find the first node in a linked list by value and replace the value
+ * the matching nodes, if any
+ *
+ * @param head pointer to the head of a linked list
+ * @param search_value value of first node in the linked list to replace
+ * @param replace_value the replacement value
+ * @return nothing
+ */
+void replace_first_match(Node *head, int search_value, int replace_value) {
+    Node *node = get_node_by_value(head, search_value);
+    if (node != NULL)
+        node->value = replace_value;
+}
