@@ -212,3 +212,25 @@ void delete_linked_list(Node **head) {
 
     *head = NULL;
 }
+
+/**
+ * @brief Find a node in a linked list by value
+ *
+ * @param head pointer to the head of a linked list
+ * @param value value to of node in a linked list for which to search
+ * @return pointer to a node or NULL
+ */
+Node *get_node_by_value(Node *head, int value) {
+    if (head == NULL)
+        return NULL;
+
+    Node *current = head;
+    while (current != NULL) {
+        if (current->value == value)
+            break;
+
+        current = current->next;
+    }
+
+    return current;
+}

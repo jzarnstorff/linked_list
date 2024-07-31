@@ -40,4 +40,6 @@ void delete_head_node(Node **head);
 void delete_tail_node(Node **head);
 void delete_linked_list(Node **head);
 
+Node *get_node_by_value(Node *head, int value);
+
 #endif // __LINKED_LIST_H__
