@@ -29,6 +29,8 @@ void insert_tail_node(Node **head, int value);
 
 void print_linked_list(const Node *head);
 
+void delete_head_node(Node **head);
+void delete_tail_node(Node **head);
 void delete_linked_list(Node **head);
 
 #endif // __LINKED_LIST_H__

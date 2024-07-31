@@ -69,6 +69,45 @@ void print_linked_list(const Node *head) {
 }
 
 /**
+ * @brief Delete the node at the head of a linked list
+ *
+ * @param head address of a pointer to the head of a linked list
+ * @return nothing
+ */
+void delete_head_node(Node **head) {
+    if (*head == NULL)
+        return;
+
+    Node *next_node = (*head)->next;
+    free(*head);
+    *head = next_node;
+}
+
+/**
+ * @brief Delete the node at the tail of a linked list
+ *
+ * @param head address of a pointer to the head of a linked list
+ * @return nothing
+ */
+void delete_tail_node(Node **head) {
+    if (*head == NULL)
+        return;
+
+    else if ((*head)->next == NULL)
+        return delete_head_node(head);
+
+    else {
+        Node *node = *head;
+        // traverse to the second to last node in the list
+        while (node->next->next != NULL)
+            node = node->next;
+
+        free(node->next);
+        node->next = NULL;
+    }
+}
+
+/**
  * @brief Delete all nodes in a linked list
  *
  * @param head address of a pointer to the head of a linked list
