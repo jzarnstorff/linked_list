@@ -41,5 +41,6 @@ void delete_tail_node(Node **head);
 void delete_linked_list(Node **head);
 
 Node *get_node_by_value(Node *head, int value);
+Node *get_node_by_index(Node *head, size_t index);
 
 #endif // __LINKED_LIST_H__

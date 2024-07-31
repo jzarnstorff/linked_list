@@ -234,3 +234,31 @@ Node *get_node_by_value(Node *head, int value) {
 
     return current;
 }
+
+/**
+ * Find a node in a linked list by its index. If the list is empty (NULL),
+ * a NULL pointer is returned. A NULL pointer will also be returned if the
+ * desired node's index is greater than the length of the linked list.
+ *
+ * @brief Find a node in a linked list by index
+ *
+ * @param head pointer to the head of a linked list
+ * @param index the desired node's index in the list
+ * @return pointer to a node or NULL
+ */
+Node *get_node_by_index(Node *head, size_t index) {
+    Node *current = head;
+    size_t current_index = 0;
+
+    // if linked list is empty (NULL), we won't even
+    // enter this loop and we will return a NULL pointer.
+    while (current != NULL) {
+        if (current_index == index)
+            break;
+
+        current = current->next;
+        ++current_index;
+    }
+
+    return current;
+}
