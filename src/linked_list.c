@@ -277,3 +277,25 @@ void replace_first_match(Node *head, int search_value, int replace_value) {
     if (node != NULL)
         node->value = replace_value;
 }
+
+/**
+ * @brief Find the all nodes in a linked list by value and replace the values of
+ * any matching nodes
+ *
+ * @param head pointer to the head of a linked list
+ * @param search_value value of node in the linked list to replace
+ * @param replace_value the replacement value
+ * @return nothing
+ */
+void replace_all_matches(Node *head, int search_value, int replace_value) {
+    if (head == NULL)
+        return;
+
+    Node *current = head;
+    while (current != NULL) {
+        if (current->value == search_value)
+            current->value = replace_value;
+
+        current = current->next;
+    }
+}
