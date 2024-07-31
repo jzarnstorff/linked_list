@@ -9,6 +9,7 @@
 #ifndef __LINKED_LIST_H__
 #define __LINKED_LIST_H__
 
+#include <stdbool.h>
 #include <stddef.h>
 
 /**
@@ -32,6 +33,7 @@ void insert_after_node(Node **head, int new_node_value, int after_node_value);
 
 void print_linked_list(const Node *head);
 size_t length_linked_list(const Node *head);
+bool has_value(const Node *head, int value);
 
 void delete_head_node(Node **head);
 void delete_tail_node(Node **head);

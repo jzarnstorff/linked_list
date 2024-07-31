@@ -7,6 +7,7 @@
  */
 
 #include "linked_list.h"
+#include <stdbool.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -116,6 +117,24 @@ size_t length_linked_list(const Node *head) {
 
     else
         return 1 + length_linked_list(head->next);
+}
+
+/**
+ * @brief Recursively traverse the list for the presence of a value in the list
+ *
+ * @param head pointer to the head of a linked list
+ * @param value value of the node to search for
+ * @return true/false
+ */
+bool has_value(const Node *head, int value) {
+    if (head == NULL)
+        return false;
+
+    else if (head->value == value)
+        return true;
+
+    else
+        return has_value(head->next, value);
 }
 
 /**
