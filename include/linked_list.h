@@ -1,0 +1,34 @@
+/**
+ * Linked List Library
+ *
+ * @file linked_list.h
+ * @author Jacob Zarnstorff
+ *
+ */
+
+#ifndef __LINKED_LIST_H__
+#define __LINKED_LIST_H__
+
+/**
+ * Linked lists are made up of nodes that point to one another in a chain,
+ * beginning with a head node and ending with a tail node. Each node only
+ * points to one other node, and the tail node points to NULL. Empty lists
+ * are also represented with NULL. For more on linked lists see:
+ * https://en.wikipedia.org/wiki/Linked_list
+ *
+ * @brief A node in a linked list
+ *
+ */
+typedef struct node {
+    int value;         /**< the value stored in the node */
+    struct node *next; /**< pointer to the next node in the linked list */
+} Node;
+
+void insert_head_node(Node **head, int value);
+void insert_tail_node(Node **head, int value);
+
+void print_linked_list(const Node *head);
+
+void delete_linked_list(Node **head);
+
+#endif // __LINKED_LIST_H__
