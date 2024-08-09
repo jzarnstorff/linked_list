@@ -214,6 +214,31 @@ void delete_linked_list(Node **head) {
 }
 
 /**
+ * @brief Reverse all nodes in a linked list
+ *
+ * @param head address of a pointer to the head of a linked list
+ * @return nothing
+ */
+void reverse_linked_list(Node **head) {
+    if ((*head == NULL) || ((*head)->next == NULL))
+        return;
+
+    Node *previous = NULL;
+    Node *current = *head;
+    Node *next;
+    while (current != NULL) {
+        next = current->next;
+        current->next = previous;
+        previous = current;
+        current = next;
+    }
+
+    // current is now pointing to NULL and previous is pointing what used to be
+    // the last node in the linked list; assign it as the new head of the list
+    *head = previous;
+}
+
+/**
  * @brief Find a node in a linked list by value
  *
  * @param head pointer to the head of a linked list
