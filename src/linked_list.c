@@ -239,6 +239,35 @@ void reverse_linked_list(Node **head) {
 }
 
 /**
+ * @brief Appends the list beginning with head_2 to the tail of the list
+ * beginning with head_1
+ *
+ * @param head_1 address of a pointer to the head of the first linked list
+ * @param head_2 pointer to the head of the list to append to the first linked
+ * list
+ * @return nothing
+ */
+void append_linked_list(Node **head_1, Node *head_2) {
+    if (head_2 == NULL)
+        return;
+
+    if (*head_1 == NULL) {
+        // head_2 doesn't point to NULL, but the head_1
+        // pointer does; head_2 is now the head of the list
+        *head_1 = head_2;
+        return;
+    }
+
+    Node *current = *head_1;
+    // traverse to the last node in the linked list
+    // to change its next pointer to point to head_2
+    while (current->next != NULL)
+        current = current->next;
+
+    current->next = head_2;
+}
+
+/**
  * @brief Find a node in a linked list by value
  *
  * @param head pointer to the head of a linked list

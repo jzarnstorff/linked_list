@@ -40,6 +40,7 @@ void delete_head_node(Node **head);
 void delete_tail_node(Node **head);
 void delete_linked_list(Node **head);
 void reverse_linked_list(Node **head);
+void append_linked_list(Node **head_1, Node *head_2);
 
 Node *get_node_by_value(Node *head, int value);
 Node *get_node_by_index(Node *head, size_t index);
