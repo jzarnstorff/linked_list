@@ -299,3 +299,33 @@ void replace_all_matches(Node *head, int search_value, int replace_value) {
         current = current->next;
     }
 }
+
+/**
+ * @brief Find the first node in a linked list by value and delete it, if any
+ *
+ * @param head address of a pointer to the head of a linked list
+ * @param value value of first node in the linked list to find and delete
+ * @return nothing
+ */
+void delete_first_match(Node **head, int value) {
+    if (*head == NULL)
+        return;
+
+    if ((*head)->value == value)
+        return delete_head_node(head);
+
+    // the value at the head of the list
+    // does not match the target value
+    Node *previous = *head;
+    Node *current = (*head)->next;
+    while (current != NULL) {
+        if (current->value == value) {
+            previous->next = current->next;
+            free(current);
+            break;
+        }
+
+        previous = current;
+        current = current->next;
+    }
+}

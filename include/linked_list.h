@@ -44,5 +44,6 @@ Node *get_node_by_value(Node *head, int value);
 Node *get_node_by_index(Node *head, size_t index);
 void replace_first_match(Node *head, int search_value, int replace_value);
 void replace_all_matches(Node *head, int search_value, int replace_value);
+void delete_first_match(Node **head, int value);
 
 #endif // __LINKED_LIST_H__
