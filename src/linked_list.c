@@ -329,3 +329,43 @@ void delete_first_match(Node **head, int value) {
         current = current->next;
     }
 }
+
+/**
+ * @brief Find the all nodes in a linked list by value and delete them, if any
+ *
+ * @param head address of a pointer to the head of a linked list
+ * @param value value of nodes in the linked list to find and delete
+ * @return nothing
+ */
+void delete_all_matches(Node **head, int value) {
+    if (*head == NULL)
+        return;
+
+    Node *current, *match;
+    current = *head;
+
+    // handle multiple subsequent matches
+    // starting from the head of the list
+    while (current->value == value) {
+        match = current;
+        current = current->next;
+        free(match);
+    }
+
+    // current is now guaranteed to be pointing to
+    // the first non-matching node in the list
+    *head = current;
+    while (current->next != NULL) {
+        // check for matches and possible
+        // multiple subsequent matches to
+        // free and update next pointer
+        if (current->next->value == value) {
+            match = current->next;
+            current->next = current->next->next;
+            free(match);
+        }
+
+        else
+            current = current->next;
+    }
+}
