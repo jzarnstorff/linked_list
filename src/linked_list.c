@@ -473,3 +473,41 @@ void delete_node_by_index(Node **head, size_t index) {
     previous->next = match->next;
     free(match);
 }
+
+/**
+ * Find and two node in a linked list by their indexes. If the list is empty
+ * (NULL), or if any the desired node's indexes are greater than the length
+ * of the linked list, the list will remain unchanged.
+ *
+ * @brief Find two nodes in a linked list by their indexes and swap their values
+ *
+ * @param head pointer to the head of a linked list
+ * @param index_1 the index of a node in the list to whose value should be
+ * swapped with index_2
+ * @param index_2 the index of a node in the list to whose value should be
+ * swapped with index_1
+ * @return nothing
+ */
+void swap_node_values_by_index(Node *head, size_t index_1, size_t index_2) {
+    if ((head == NULL) || (index_1 == index_2))
+        return;
+
+    // first evaluate which index is the minimum value and maximum value
+    size_t min_index = index_1, max_index = index_2;
+    if (index_1 > index_2) {
+        min_index = index_2;
+        max_index = index_1;
+    }
+
+    // get the respective nodes by their indexes. first get the node with
+    // minimum index starting from the head of the linked list. next get the
+    // node with the larger index starting from the minimum index node so we
+    // don't traverse from the head of the list again.
+    Node *node_1 = get_node_by_index(head, min_index);
+    Node *node_2 = get_node_by_index(node_1, max_index - min_index);
+
+    if ((node_1 == NULL) || (node_2 == NULL))
+        return;
+
+    swap_node_values(node_1, node_2);
+}

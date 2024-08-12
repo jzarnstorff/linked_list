@@ -50,5 +50,6 @@ void replace_all_matches(Node *head, int search_value, int replace_value);
 void delete_first_match(Node **head, int value);
 void delete_all_matches(Node **head, int value);
 void delete_node_by_index(Node **head, size_t index);
+void swap_node_values_by_index(Node *head, size_t index_1, size_t index_2);
 
 #endif // __LINKED_LIST_H__
