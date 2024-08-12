@@ -157,6 +157,24 @@ size_t num_occurrences(const Node *head, int value) {
 }
 
 /**
+ * @brief Swap the values between two nodes
+ *
+ * @param node_1 pointer to first node whose value should be swapped with the
+ * second node
+ * @param node_1 pointer to second node whose value should be swapped with the
+ * first node
+ * @return nothing
+ */
+void swap_node_values(Node *node_1, Node *node_2) {
+    if ((node_1 == NULL) || node_2 == NULL)
+        return;
+
+    int temp_value = node_1->value;
+    node_1->value = node_2->value;
+    node_2->value = temp_value;
+}
+
+/**
  * @brief Delete the node at the head of a linked list
  *
  * @param head address of a pointer to the head of a linked list

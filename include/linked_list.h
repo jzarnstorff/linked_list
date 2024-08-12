@@ -35,6 +35,7 @@ void print_linked_list(const Node *head);
 size_t length_linked_list(const Node *head);
 bool has_value(const Node *head, int value);
 size_t num_occurrences(const Node *head, int value);
+void swap_node_values(Node *node_1, Node *node_2);
 
 void delete_head_node(Node **head);
 void delete_tail_node(Node **head);
