@@ -423,3 +423,35 @@ void delete_all_matches(Node **head, int value) {
             current = current->next;
     }
 }
+
+/**
+ * Find and delete a node in a linked list by its index. If the list is empty
+ * (NULL), or if the desired node's index is greater than the length of the
+ * linked list, the list will remain unchanged.
+ *
+ * @brief Find a node in a linked list by index and remove it
+ *
+ * @param head address of a pointer to the head of a linked list
+ * @param index the desired node's index in the list to delete
+ * @return nothing
+ */
+void delete_node_by_index(Node **head, size_t index) {
+    if (*head == NULL)
+        return;
+
+    if (index == 0)
+        return delete_head_node(head);
+
+    // find the previous node of the desired node
+    Node *previous = get_node_by_index(*head, index - 1);
+
+    // first evaluate if the previous node is NULL meaning even the previous
+    // node's index is greater than the length of the linked list or if the
+    // previous node's index is the tail of the linked list
+    if ((previous == NULL) || (previous->next == NULL))
+        return;
+
+    Node *match = previous->next;
+    previous->next = match->next;
+    free(match);
+}
